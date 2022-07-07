@@ -6,9 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 var logger = new LoggerConfiguration()
   .ReadFrom.Configuration(builder.Configuration)
-  .Enrich.FromLogContext()
   .CreateLogger();
+
+//Removing default logging providers
 builder.Logging.ClearProviders();
+
+//Adding serilog as a logger
 builder.Logging.AddSerilog(logger);
 
 builder.Services.AddControllers();
