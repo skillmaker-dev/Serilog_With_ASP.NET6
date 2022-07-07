@@ -21,6 +21,7 @@ namespace PracticalSerilog.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            //Logging any info using the injected _logger
             _logger.LogInformation("GetWeatherForecast Called");
 
             try
